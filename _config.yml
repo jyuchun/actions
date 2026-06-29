@@ -1,0 +1,18 @@
+# 网站基本信息
+title: 我们的实验室成果展示
+description: 欢迎访问我们实验室的核心科研与项目成果
+theme: jekyll-theme-minimal # 使用 GitHub Pages 官方支持的极简主题
+
+# 开启“成果”作为独立的内容集合 (Collections)
+collections:
+  works:
+    output: true
+    permalink: /works/:path/
+
+# 导航栏配置（可选，如果你想在顶部加导航）
+defaults:
+  - scope:
+      path: ""
+      type: works
+    values:
+      layout: default
