@@ -1,0 +1,64 @@
+---
+layout: default
+title: 首页
+---
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ site.title }}</title>
+    <style>
+        /* 简单的卡片式栅格布局 CSS */
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+            padding: 20px 0;
+        }
+        .card {
+            border: 1px solid #e1e4e8;
+            border-radius: 6px;
+            padding: 15px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            transition: transform 0.2s, box-shadow 0.2s;
+            cursor: pointer;
+            background: #fff;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        .card h3 {
+            margin-top: 0;
+            color: #0366d6;
+        }
+        .card p {
+            color: #586069;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+        .card a {
+            text-decoration: none;
+            color: inherit;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>{{ site.title }}</h1>
+    <p>{{ site.description }}</p>
+    <hr>
+
+    <div class="grid-container">
+        {% for work in site.works %}
+        <div class="card" onclick="location.href='{{ work.url | relative_url }}'">
+            <h3>{{ work.title }}</h3>
+            <p>{{ work.description | truncate: 100 }}</p>
+            <span style="color: #0366d6; font-size: 12px;">查看详情 →</span>
+        </div>
+        {% endfor %}
+    </div>
+
+</body>
+</html>
